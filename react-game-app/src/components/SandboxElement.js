@@ -1,6 +1,6 @@
 import { FaTimes } from 'react-icons/fa'
 
-const SandboxElement = ({ sandboxElement }) => {
+const SandboxElement = ({ sandboxElement, onDelete }) => {
 
     const elementStyle = {
         backgroundColor: sandboxElement.style.color
@@ -11,7 +11,7 @@ const SandboxElement = ({ sandboxElement }) => {
             <h4>
                 <span>
                     {sandboxElement.key}
-                    <FaTimes style ={{ color: 'red', cursor: 'pointer' }}/>
+                    <FaTimes onClick={() => onDelete(sandboxElement.key)} style ={{ color: 'red', cursor: 'pointer' }}/>
                 </span>
             </h4>
             <span>{JSON.stringify(sandboxElement.style)}</span>

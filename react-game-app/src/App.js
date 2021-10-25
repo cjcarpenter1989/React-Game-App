@@ -33,12 +33,17 @@ function App() {
     setSandboxElements([...sandboxElements, element]);
   }
 
+   // Delete Element
+   const deleteElement = (key) => {
+    setSandboxElements(sandboxElements.filter((sandboxElement) => sandboxElement.key !== key))
+  }
+
   return (
     <div className="App">
       <Header />
       <div className="App-Container">
         <SandboxNav onCreate={createElement} />
-        <SandboxArea sandboxElements={sandboxElements} />
+        <SandboxArea sandboxElements={sandboxElements} onDelete={deleteElement}/>
       </div>
     </div>
 

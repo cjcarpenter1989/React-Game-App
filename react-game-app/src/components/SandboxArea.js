@@ -1,9 +1,9 @@
 import SandboxElement from "./SandboxElement"
 
-const SandboxArea = ({sandboxElements}) => {
+const SandboxArea = ({sandboxElements, onDelete}) => {
     return (
         <div className="Sandbox-Area">
-            {sandboxElements.map((sandboxElement) => (<SandboxElement sandboxElement={sandboxElement}/>))}
+            {sandboxElements.map((sandboxElement) => (<SandboxElement sandboxElement={sandboxElement} onDelete={onDelete}/>))}
         </div>
     )
 }
