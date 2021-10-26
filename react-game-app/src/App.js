@@ -22,28 +22,33 @@ function App() {
   ]);
 
   // Create Element
-  const createElement = () => {
+  const createElement = ({ id = null, color = null }) => {
     const element = {
-      key: Math.floor(Math.random() * 10000),
+      key: id ?? Math.floor(Math.random() * 10000),
       style: {
-        color: "#" + (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0')
+        color: color ?? ("#" + (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0'))
       }
     }
 
     setSandboxElements([...sandboxElements, element]);
   }
 
-   // Delete Element
-   const deleteElement = (key) => {
+  const addSandboxElement = ({ id, color }) => {
+    createElement({ id, color });
+  }
+
+  // Delete Element
+  const deleteElement = (key) => {
     setSandboxElements(sandboxElements.filter((sandboxElement) => sandboxElement.key !== key))
   }
+
 
   return (
     <div className="App">
       <Header />
       <div className="App-Container">
-        <SandboxNav onCreate={createElement} />
-        <SandboxArea sandboxElements={sandboxElements} onDelete={deleteElement}/>
+        <SandboxNav onCreate={createElement} addSandboxElement={addSandboxElement} />
+        <SandboxArea sandboxElements={sandboxElements} onDelete={deleteElement} />
       </div>
     </div>
 

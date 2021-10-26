@@ -75,6 +75,27 @@
   background-color: white; 
 }
 
+.Add-Sandbox-Element-Form {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
 .btn {
   padding: 5px;
+}
+
+.form-control {
+    display: flex;    
+}
+
+.form-control label {
+  flex: 1;
+  color: white;
+  margin: 5px;
+}
+
+.form-control input {
+  flex: 1;
+  margin: 5px;
 }
